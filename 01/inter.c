@@ -1,40 +1,34 @@
-#include<unistd.h>
+#include <unistd.h>
 
-int main (int argc, char **argv)
+int main void(int argc, char **argv)
 {
     int i = 0;
-    int parar = 1;
-    int y;
+    int ascii[255];
 
     if (argc == 3)
     {
+        while(ascii[i])
+        {
+            ascii[i] = 0;
+            i++;
+        }
+        i = 0;
         while (argv[1][i])
         {
-            y = i - 1;
-            if (i != 0)
+            if (ascii[i] == 0)
             {
-                while (argv[1][y])
-                {
-                    parar = 1;
-                    if (argv[1][i] == argv[1][y])
-                    {
-                        parar = 0;
-                        break;
-                    }
-                    y--;
-                } 
-            }   
-            y = 0;
-            while (argv[2][y] && parar != 0)
-            {
-                if (argv[1][i] == argv[2][y])
-                {
-                    write(1, &argv[1][i], 1);
-                    break;
-                }
-                y++;
+                write(1, argv[1][i], 1);
+                ascii[i] = 1;
             }
-            i++;
+        }
+        i = 0;
+        while (argv[2][i])
+        {
+            if (ascii[i] == 0)
+            {
+                write(1, argv[1][i], 1);
+                ascii[i] = 1;
+            }
         }
     }
     write(1, "\n", 1);
