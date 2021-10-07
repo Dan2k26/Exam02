@@ -1,13 +1,14 @@
 #include <unistd.h>
 
-int main void(int argc, char **argv)
+int main (int argc, char **argv)
 {
     int i = 0;
     int ascii[255];
+    int ar;
 
     if (argc == 3)
     {
-        while(ascii[i])
+        while(i < 255)
         {
             ascii[i] = 0;
             i++;
@@ -15,20 +16,24 @@ int main void(int argc, char **argv)
         i = 0;
         while (argv[1][i])
         {
-            if (ascii[i] == 0)
+            ar = (int)argv[1][i];
+            if (ascii[ar] == 0)
             {
-                write(1, argv[1][i], 1);
-                ascii[i] = 1;
+                write(1, &argv[1][i], 1);
+                ascii[ar] = 1;
             }
+            i++;
         }
         i = 0;
         while (argv[2][i])
         {
-            if (ascii[i] == 0)
+            ar = (int)argv[2][i];
+            if (ascii[ar] == 0)
             {
-                write(1, argv[1][i], 1);
-                ascii[i] = 1;
+                write(1, &argv[2][i], 1);
+                ascii[ar] = 1;
             }
+            i++;
         }
     }
     write(1, "\n", 1);
