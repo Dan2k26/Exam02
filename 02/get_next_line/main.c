@@ -6,16 +6,18 @@ int	main(void)
 {
 	int		fd;
 	char	*archive;
-	fd = open("fichero", O_RDONLY);
-	archive = get_next_line(0);
+	
+	//fd = open("fichero", O_RDONLY);
+	fd = 0;
+	archive = get_next_line(fd);
 	while (archive)
 	{
 		free(archive);
-		printf("Archivo: %s", archive);
-		archive = get_next_line(0);
+		printf("%s", archive);
+		archive = get_next_line(fd);
 	}
 	free(archive);
     close(fd);
-	//system("\nleaks -q gnl.out");
+	//system("\nleaks -q a.out");
 	return (0);
 }

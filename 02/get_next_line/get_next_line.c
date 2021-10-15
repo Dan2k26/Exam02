@@ -14,8 +14,8 @@ static int	count_str(char *str)
 
 static char	*ft_join(char *str, char buff)
 {
-	int		len;
-	int		i;
+	int	len;
+	int	i;
 	char	*join;
 
 	i = 0;
@@ -46,8 +46,9 @@ char	*get_next_line(int fd)
 	size = read(fd, buff, 1);
 	if (size == 0 || size == -1)
 		return (NULL);
-	buff[0] = '\n';
+	buff[1] = '\0';
 	line = "";
+	cont = 0;
 	while (size > 0)
 	{
 		aux = line;
@@ -59,9 +60,11 @@ char	*get_next_line(int fd)
 		if (buff[0] == '\n')
 			return (line);
 		size = read(fd, buff, 1);
-		if (size == 0 || size == -1)
+		if (size == 0 || buff[0] == '\0')
+			return (line);
+		if (size == 0)
 			return (NULL);
-		buff[0] = '\n';
+		buff[1] = '\0';
 		cont++;
 	}
 	return (line);

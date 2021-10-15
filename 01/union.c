@@ -4,7 +4,7 @@ int main (int argc, char **argv)
 {
     int i = 0;
     int ascii[255];
-    int ar;
+    int arg;
 
     if (argc == 3)
     {
@@ -16,22 +16,22 @@ int main (int argc, char **argv)
         i = 0;
         while (argv[1][i])
         {
-            ar = (int)argv[1][i];
-            if (ascii[ar] == 0)
+            arg = (int)argv[1][i];
+            if (ascii[arg] == 0)
             {
                 write(1, &argv[1][i], 1);
-                ascii[ar] = 1;
+                ascii[arg] = 1;
             }
             i++;
         }
         i = 0;
         while (argv[2][i])
         {
-            ar = (int)argv[2][i];
-            if (ascii[ar] == 0)
+            arg = (int)argv[2][i];
+            if (ascii[arg] == 0)
             {
                 write(1, &argv[2][i], 1);
-                ascii[ar] = 1;
+                ascii[arg] = 1;
             }
             i++;
         }

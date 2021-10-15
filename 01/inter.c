@@ -3,7 +3,7 @@
 int main (int argc, char **argv)
 {
     int i = 0;
-    int parar = 1;
+    int stop = 1;
     int y;
 
     if (argc == 3)
@@ -15,17 +15,17 @@ int main (int argc, char **argv)
             {
                 while (argv[1][y])
                 {
-                    parar = 1;
+                    stop = 1;
                     if (argv[1][i] == argv[1][y])
                     {
-                        parar = 0;
+                        stop = 0;
                         break;
                     }
                     y--;
                 } 
             }   
             y = 0;
-            while (argv[2][y] && parar != 0)
+            while (argv[2][y] && stop != 0)
             {
                 if (argv[1][i] == argv[2][y])
                 {
